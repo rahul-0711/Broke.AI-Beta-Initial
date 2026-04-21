@@ -1,0 +1,74 @@
+.section {
+  background: linear-gradient(180deg, transparent, rgba(102,0,255,0.04), transparent);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+/* ── PURPLE/VIOLET glow for Testimonials ── */
+.card {
+  background: rgba(12, 16, 42, 0.3);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease, background 0.35s ease;
+  cursor: default;
+}
+.card:hover {
+  border-color: rgba(139, 92, 246, 0.65);
+  background: rgba(30, 26, 58, 0.65);
+  box-shadow:
+    0 0 0 1.5px rgba(139,92,246,0.35),
+    0 18px 55px rgba(139,92,246,0.25),
+    0 0 90px rgba(139,92,246,0.1),
+    inset 0 0 40px rgba(139,92,246,0.04);
+  transform: translateY(-6px) scale(1.025);
+}
+
+.offset { transform: translateY(2rem); }
+.offset:hover { transform: translateY(calc(2rem - 6px)) scale(1.025); }
+
+.quote {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  font-style: italic;
+  transition: color 0.28s ease;
+}
+.card:hover .quote { color: rgba(255,255,255,0.9); }
+.author { display: flex; align-items: center; gap: 0.85rem; }
+.avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover .avatar {
+  transform: scale(1.1);
+  box-shadow: 0 0 16px rgba(139,92,246,0.5);
+}
+.name { font-weight: 700; font-size: 0.9rem; color: #fff; transition: color 0.28s ease; }
+.card:hover .name { color: #c4b5fd; }
+.role { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 0.1rem; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .offset { transform: none; }
+  .offset:hover { transform: translateY(-6px) scale(1.025); }
+}

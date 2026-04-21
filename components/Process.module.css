@@ -1,0 +1,107 @@
+.section { position: relative; }
+.subtitle {
+  max-width: 520px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.75rem;
+  margin-bottom: 4rem;
+  font-size: 1rem;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.line {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, #00d9ff, #0066ff);
+  opacity: 0.5;
+}
+
+/* Step */
+.step {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: calc(50% + 3rem);
+}
+.step.right {
+  flex-direction: row-reverse;
+  padding-right: 0;
+  padding-left: calc(50% + 3rem);
+}
+
+/* Node */
+.stepNode {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d9ff, #0066ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 6px rgba(0,217,255,0.15), 0 0 0 12px rgba(0,217,255,0.06);
+  animation: pulse-glow 3s ease-in-out infinite;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.stepNum {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.875rem;
+  color: #0a0e27;
+}
+
+/* Card */
+/* ── TEAL/EMERALD glow for Process steps ── */
+.stepCard {
+  background: rgba(12, 16, 42, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  flex: 1;
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  max-width: 420px;
+  cursor: default;
+}
+.stepCard:hover {
+  border-color: rgba(16, 185, 129, 0.65);
+  background: rgba(16, 40, 35, 0.5);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow:
+    0 0 0 1.5px rgba(16,185,129,0.35),
+    0 18px 50px rgba(16,185,129,0.25),
+    0 0 80px rgba(16,185,129,0.1),
+    inset 0 0 30px rgba(16,185,129,0.04);
+}
+.stepCard:hover .stepTitle { color: #6ee7b7; }
+.stepIcon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+.stepTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.stepDesc { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+@media (max-width: 768px) {
+  .line { left: 24px; }
+  .step, .step.right {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 0 0 72px;
+  }
+  .stepNode { left: 24px; }
+  .stepCard { max-width: 100%; }
+}
